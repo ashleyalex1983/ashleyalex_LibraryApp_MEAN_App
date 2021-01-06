@@ -26,7 +26,7 @@
                       </div>
                   </div>
                   <div class="form_control">
-                    <label for="">Born On</label>
+                    <label for="">Born On</label><sup>*</sup>
                     <input type="text" placeholder="Enter Birth Date" [(ngModel)]="author_Item.author_dob"
                     id="author-dob" name="dob" formControlName="dob">
                     <!-- <p>Error message</p> -->
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                   <div class="form_control">
-                      <label for="">Author Genre</label>
+                      <label for="">Author Genre</label><sup>*</sup>
                       <input type="text" placeholder="Enter Genre" [(ngModel)]="author_Item.author_genre"
                       id="author-genre" name="genre" formControlName="genre" required>
                       <!-- <p>Error message</p> -->
@@ -54,7 +54,7 @@
                               [style.margin.px] = 'imageMargin'>
                       <br>
                       <input class="form-control" type="file" accept="image/*"
-                            (change)="onSelectImage($event)" name="author_image"
+                            (change)="onSelectImage($event)" name="imageurl"
                             [(ngModel)]="author_Item.author_imageUrl" formControlName="imageurl" required>
                         <div   *ngIf="af.imageurl.touched && af.imageurl.invalid" class="alert alert-danger">
                           <div *ngIf="af.imageurl.errors.required">Image is required</div>

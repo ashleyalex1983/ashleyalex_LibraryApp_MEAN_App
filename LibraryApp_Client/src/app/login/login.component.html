@@ -21,16 +21,11 @@
             <br>
             <div class="form_control">
               <input type="text" name="username" id="username" [(ngModel)]="user.user_email"
-                     placeholder="Enter Email" formControlName="email">
+                     placeholder="Enter Email" formControlName="email" autocomplete="off" autofocus="on">
               <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
                 <div *ngIf="f.email.errors.required">Email is required</div>
                 <div *ngIf="f.email.errors.email">Enter a valid email</div>
               </div>
-                      <!-- #email="ngModel"
-                     [class.is-invalid]="email.invalid && email.touched" required
-                     pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}"> -->
-              <!-- <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter valid email</small> -->
-
             </div>
             <!-- <hr> -->
             <div class="form_control">
@@ -43,7 +38,7 @@
               </div>
             </div>
             <!-- <br> -->
-            <button id="submit-button" type="submit">Login</button>
+            <button id="submit-button" type="submit" [disabled]="loginform.invalid">Login</button>
             <br>
             <label><a class="signup-link" href="/signup" > Click here</a>  to create an account.</label>
           </form>

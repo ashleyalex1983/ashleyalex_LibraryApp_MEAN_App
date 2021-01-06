@@ -61,7 +61,7 @@ export class BookUpdateComponent implements OnInit {
 
     reader.onloadend = (e) => {
       this.selectedImage = reader.result as string;
-      console.log(this.selectedImage);
+      // console.log(this.selectedImage);
       this.currentBook.book_imageUrl = this.selectedImage;
     }
     reader.readAsDataURL(file);

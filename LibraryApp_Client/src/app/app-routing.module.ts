@@ -29,31 +29,31 @@ const routes: Routes = [
     path:'signup', component:SignupComponent
   },
   {
-    path:'dashboard', component:DashboardComponent
+    path:'dashboard', component:DashboardComponent,canActivate:[AuthGuard]
   },
   {
-    path:'books', component:BookListComponent
+    path:'books', component:BookListComponent,canActivate:[AuthGuard]
   },
   {
     path:'add_book', component:BookCreateComponent,canActivate:[AuthGuard]
   },
   {
-    path:'books/:id', component:BookDetailsComponent
+    path:'books/:id', component:BookDetailsComponent,canActivate:[AuthGuard]
   },
   {
-    path:'update_book', component:BookUpdateComponent
+    path:'update_book', component:BookUpdateComponent,canActivate:[AuthGuard]
   },
   {
-    path:'authors', component:AuthorListComponent
+    path:'authors', component:AuthorListComponent,canActivate:[AuthGuard]
   },
   {
     path:'add_author', component:AuthorCreateComponent,canActivate:[AuthGuard]
   },
   {
-    path:'authors/:id', component:AuthorDetailsComponent
+    path:'authors/:id', component:AuthorDetailsComponent,canActivate:[AuthGuard]
   },
   {
-    path:'update_author', component:AuthorUpdateComponent
+    path:'update_author', component:AuthorUpdateComponent,canActivate:[AuthGuard]
   }
 ];
 

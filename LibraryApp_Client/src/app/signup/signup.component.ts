@@ -25,7 +25,8 @@ export class SignupComponent implements OnInit {
       password: new FormControl('',[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/)]),
       confirmPassword : new FormControl('',Validators.required)
 
-    },{validators: this.passwordMatchValidate}  )
+    },this.passwordMatchValidate //,{validators: this.passwordMatchValidate}
+  )
 
   passwordMatchValidate(frm: FormGroup){
     return frm.controls['password'].value === frm.controls['confirmPassword'].value ? null : {'mismatch': true};

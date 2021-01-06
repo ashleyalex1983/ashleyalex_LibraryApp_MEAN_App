@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
   logOutUser(){
     localStorage.removeItem('token');
+    localStorage.clear();
     this._router.navigate(['home']);
   }
 

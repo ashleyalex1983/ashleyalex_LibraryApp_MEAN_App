@@ -49,7 +49,7 @@ export class BookCreateComponent implements OnInit {
 
     reader.onloadend = (e) => {
       this.selectedImage = reader.result as string;
-      console.log(this.selectedImage);
+      // console.log(this.selectedImage);
       this.book_Item.book_imageUrl = this.selectedImage;
     }
     reader.readAsDataURL(file);
@@ -57,7 +57,7 @@ export class BookCreateComponent implements OnInit {
 
   addBook(){
     this.bookService.newBook(this.book_Item);
-    console.log('Called');
+    // console.log('Called');
     alert("Success");
     this.router.navigate(['books']);
   }

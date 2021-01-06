@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookService {
 
-  // readonly baseURL = 'http://localhost:3000';
+  readonly baseURL = 'http://localhost:3000';
 
   //heroku hosted server url
-  readonly baseURL = 'https://ashley-lib-server.herokuapp.com';
+  // readonly baseURL = 'https://ashley-lib-server.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 

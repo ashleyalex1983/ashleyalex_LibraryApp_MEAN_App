@@ -6,24 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  // readonly baseURL = 'http://localhost:3000';
+  readonly baseURL = 'http://localhost:3000';
 
   //heroku hosted server url
-  readonly baseURL = 'https://ashley-lib-server.herokuapp.com';
+  // readonly baseURL = 'https://ashley-lib-server.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 
   signupUser(user:any){
-    console.log(user);
     return this.http.post<any>(this.baseURL + '/user/signup',user);
   }
 
   loginUser(user:any){
-    console.log(user);
     return this.http.post<any>(this.baseURL + '/user/login',user)
-      // .subscribe((data)=>{
-      //   console.log("success");
-      // });
   }
 
   //checks whether the token exists in localStorage

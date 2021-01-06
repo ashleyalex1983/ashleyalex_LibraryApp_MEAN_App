@@ -62,7 +62,7 @@ export class AuthorUpdateComponent implements OnInit {
 
     reader.onloadend = (e) => {
       this.selectedImage = reader.result as string;
-      console.log(this.selectedImage);
+      // console.log(this.selectedImage);
       this.currentAuthor.author_imageUrl = this.selectedImage;
     }
     reader.readAsDataURL(file);

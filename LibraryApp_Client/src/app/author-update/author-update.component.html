@@ -27,7 +27,7 @@
                       </div>
                   </div>
                   <div class="form_control">
-                    <label for="">Born On</label>
+                    <label for="">Born On</label><sup>*</sup>
                     <input type="text" placeholder="Enter Birth Date" [(ngModel)]="currentAuthor.author_dob"
                     id="author-dob" name="dob" formControlName="dob" required>
                     <!-- <p>Error message</p> -->
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                   <div class="form_control">
-                      <label for="">Author Genre</label>
+                      <label for="">Author Genre</label><sup>*</sup>
                       <input type="text" placeholder="Enter Genre" [(ngModel)]="currentAuthor.author_genre"
                       id="author-genre" name="genre" formControlName="genre" >
                       <!-- <p>Error message</p> -->
@@ -49,13 +49,13 @@
                       <label class="form-label" for="">Author Image</label><sup>*</sup>
                       <hr>
                       <div class="mb-3">
-                        <span><img  *ngIf="currentAuthor.author_imageUrl || selectedImage"
+                        <img  *ngIf="currentAuthor.author_imageUrl || selectedImage"
                                     [src]="currentAuthor.author_imageUrl"
                                     [style.width.px] = 'imageWidth'
-                                    [style.hieght.px] = 'imageHieght'></span>
+                                    [style.margin.px] = 'imageMargin'>
                         <br>
                         <input type="file" accept="image/*" (change)="onSelectImage($event)"
-                             class="form-control" name="author_image" id="image"
+                             class="form-control" name="imageurl" id="image"
                              [(ngModel)]="currentAuthor.author_imageUrl" formControlName="imageurl">
                           <!-- <div   *ngIf="af.imageurl.touched && af.imageurl.invalid" class="alert alert-danger">
                             <div *ngIf="af.imageurl.errors.required">Image is required</div>

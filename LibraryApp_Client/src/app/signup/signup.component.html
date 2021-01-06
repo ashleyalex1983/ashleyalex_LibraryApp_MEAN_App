@@ -25,10 +25,10 @@
               <label for="">Full Name</label>
               <sup>*</sup>
               <input type="text" placeholder="Enter Full Name" [(ngModel)]="user.user_name"
-                     id="fname" name="fname" formControlName="fullname" style="width:100%;" >
+                     id="fname" name="fullname" formControlName="fullname" style="width:100%;" >
             <!-- error -->
             <div *ngIf="myform.fullname.touched && myform.fullname.invalid" class="alert alert-danger">
-              <div *ngIf="myfrom.fullname.errors.required">FullName is required</div>
+              <div *ngIf="myform.fullname.errors.required">FullName is required</div>
               <div *ngIf="myform.fullname.errors.pattern">Must be alphabets</div>
             </div>
             <!-- error -->
@@ -92,13 +92,13 @@
                 <!-- error -->
                 <div *ngIf="myform.confirmPassword.touched && myform.confirmPassword.invalid" class="alert alert-danger">
                   <div *ngIf="myform.confirmPassword.errors.required">Must Retype Password</div>
-                  <div *ngIf="myform.errors.mismatch">Password does not match</div>
+                  <div *ngIf="myform.errors?.mismatch && (myform.controls['confirmPassword'].dirty || myform.controls['confirmPassword'].touched)">Password does not match</div>
                 </div>
                 <!-- error -->
               </div>
 
             <!-- </div> -->
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit" [disabled]="signupform.invalid" >Submit</button>
             <br>
             <label><a class="login-link" href="/login" > Click here</a>  to login to your account.</label>
           </form>

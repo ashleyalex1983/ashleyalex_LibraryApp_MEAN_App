@@ -50,7 +50,7 @@ export class AuthorCreateComponent implements OnInit {
 
     reader.onloadend = (e) => {
       this.selectedImage = reader.result as string;
-      console.log(this.selectedImage);
+      // console.log(this.selectedImage);
       this.author_Item.author_imageUrl = this.selectedImage;
     }
     reader.readAsDataURL(file);
@@ -58,7 +58,7 @@ export class AuthorCreateComponent implements OnInit {
 
   addAuthor(){
     this.authorService.newAuthor(this.author_Item);
-    console.log('Called');
+    // console.log('Called');
     alert("Success");
     this.router.navigate(['authors']);
   }
