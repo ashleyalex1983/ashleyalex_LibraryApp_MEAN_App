@@ -1,0 +1,114 @@
+
+<div class="container" >
+  <div class="row g-3" style="align-content: center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="form-panel" style="width: fit-content;">
+        <!-- signup form -->
+        <div class="box signup-form  form-container">
+          <h2 class="form-heading">Sign-up an account</h2>
+          <hr>
+          <!-- Success msg -->
+          <div *ngIf="successMsg" class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{successMsg}}</strong>
+          </div>
+          <!-- Error msg -->
+          <div *ngIf="errorMsg" class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{errorMsg}}</strong>
+          </div>
+
+          <form class="form" id="form" [formGroup]="signupform" (ngSubmit)="signupUser()" >
+
+            <div class="form_control">
+              <label for="">Full Name</label>
+              <sup>*</sup>
+              <input type="text" placeholder="Enter Full Name" [(ngModel)]="user.user_name"
+                     id="fname" name="fname" formControlName="fullname" style="width:100%;" >
+            <!-- error -->
+            <div *ngIf="myform.fullname.touched && myform.fullname.invalid" class="alert alert-danger">
+              <div *ngIf="myfrom.fullname.errors.required">FullName is required</div>
+              <div *ngIf="myform.fullname.errors.pattern">Must be alphabets</div>
+            </div>
+            <!-- error -->
+            </div>
+
+            <div class="form_control">
+                <label for="">Email Address</label>
+                <sup>*</sup>
+                <input type="email" placeholder="Enter Email Address" [(ngModel)]="user.user_email"
+                       id="email" name="email" formControlName="email" autocomplete="off" style="width:100%;">
+                <!-- <p>Error message</p> -->
+              <!-- error -->
+              <div *ngIf="myform.email.touched && myform.email.invalid" class="alert alert-danger">
+                <div *ngIf="myform.email.errors.required">Email is required</div>
+                <div *ngIf="myform.email.errors.email">Enter a valid email</div>
+              </div>
+              <!-- error -->
+            </div>
+            <!-- <div formGroupName="PasswordValidation"> -->
+              <div class="form_control">
+                  <label for="">Password</label>
+                  <sup>*</sup>
+                  <input type="password" placeholder="Enter Password" [(ngModel)]="user.user_password"
+                        id="password" name="password" formControlName="password" style="width: 100%;">
+                <!-- error -->
+                <div *ngIf="myform.password.touched && myform.password.invalid" class="alert alert-danger">
+                  <div *ngIf="myform.password.errors.required">Password is required</div>
+                  <div *ngIf="myform.password.errors.pattern">Invalid Password</div>
+                </div>
+                <!-- error -->
+                  <p style="text-align: left;">Password Requirements :-</p>
+                  <ul class="list-unstyled">
+                      <li>
+                          <span class="low-upper-case">
+                              Lowercase &amp; Uppercase
+                          </span>
+                      </li>
+                      <li>
+                          <span class="one-number">
+                              Numbers (0-9)
+                          </span>
+                      </li>
+                      <li>
+                          <span class="one-special-char">
+                              Special characters (@$!%*?&)
+                          </span>
+                      </li>
+                      <li>
+                          <span class="eight-character">
+                              Atleast 8 characters
+                          </span>
+                      </li>
+                  </ul>
+              </div>
+              <div class="form_control">
+                  <label for="">Confirm Password</label>
+                  <sup>*</sup>
+                  <input  type="password" placeholder="Retype Password"
+                          id="password2" name="confirmPassword" formControlName="confirmPassword" style="width: 100%;">
+                  <!-- <p>Error message</p> -->
+                <!-- error -->
+                <div *ngIf="myform.confirmPassword.touched && myform.confirmPassword.invalid" class="alert alert-danger">
+                  <div *ngIf="myform.confirmPassword.errors.required">Must Retype Password</div>
+                  <div *ngIf="myform.errors.mismatch">Password does not match</div>
+                </div>
+                <!-- error -->
+              </div>
+
+            <!-- </div> -->
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <br>
+            <label><a class="login-link" href="/login" > Click here</a>  to login to your account.</label>
+          </form>
+        </div>
+        <!-- signup form -->
+      </div>
+    </div><!--/col-6-->
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+
+<hr>

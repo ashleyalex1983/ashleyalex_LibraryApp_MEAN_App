@@ -1,0 +1,74 @@
+<div class="container" >
+  <div class="row g-3" style="align-content: center;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="form-panel" style="width: fit-content;">
+        <div class="box form-container" *ngIf="currentAuthor">
+            <h2 class="form-heading">{{title}}</h2>
+            <hr>
+            <form class="form" id="form" [formGroup]="authorform" (ngSubmit)="editAuthor()">
+              <input type="hidden" name="_id" [(ngModel)]="currentAuthor._id">
+                  <div class="form_control">
+                      <label for="">Author Name</label><sup>*</sup>
+                      <input type="text" placeholder="Enter Author Name" [(ngModel)]="currentAuthor.author_name"
+                      id="author-name" name="name" formControlName="name" required>
+                      <!-- <p>Error message</p> -->
+                      <div *ngIf="af.name.touched && af.name.invalid" class="alert alert-danger">
+                        <div *ngIf="af.name.errors.required">Author Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form_control">
+                      <label for="">Nationality</label><sup>*</sup>
+                      <input type="text" placeholder="Enter Nationality" [(ngModel)]="currentAuthor.author_nationality"
+                      id="author-nation" name="nationality" formControlName="nationality">
+                      <!-- <p>Error message</p> -->
+                      <div *ngIf="af.nationality.touched && af.nationality.invalid" class="alert alert-danger">
+                        <div *ngIf="af.nationality.errors.required">Nationality is required</div>
+                      </div>
+                  </div>
+                  <div class="form_control">
+                    <label for="">Born On</label>
+                    <input type="text" placeholder="Enter Birth Date" [(ngModel)]="currentAuthor.author_dob"
+                    id="author-dob" name="dob" formControlName="dob" required>
+                    <!-- <p>Error message</p> -->
+                    <div   *ngIf="af.dob.touched && af.dob.invalid" class="alert alert-danger">
+                      <div *ngIf="af.dob.errors.required">DOB is required</div>
+                    </div>
+                </div>
+                  <div class="form_control">
+                      <label for="">Author Genre</label>
+                      <input type="text" placeholder="Enter Genre" [(ngModel)]="currentAuthor.author_genre"
+                      id="author-genre" name="genre" formControlName="genre" >
+                      <!-- <p>Error message</p> -->
+                      <div   *ngIf="af.genre.touched && af.genre.invalid" class="alert alert-danger">
+                        <div *ngIf="af.genre.errors.required">Genre is required</div>
+                      </div>
+                  </div>
+                  <br>
+                  <div >
+                      <label class="form-label" for="">Author Image</label><sup>*</sup>
+                      <hr>
+                      <div class="mb-3">
+                        <span><img  *ngIf="currentAuthor.author_imageUrl || selectedImage"
+                                    [src]="currentAuthor.author_imageUrl"
+                                    [style.width.px] = 'imageWidth'
+                                    [style.hieght.px] = 'imageHieght'></span>
+                        <br>
+                        <input type="file" accept="image/*" (change)="onSelectImage($event)"
+                             class="form-control" name="author_image" id="image"
+                             [(ngModel)]="currentAuthor.author_imageUrl" formControlName="imageurl">
+                          <!-- <div   *ngIf="af.imageurl.touched && af.imageurl.invalid" class="alert alert-danger">
+                            <div *ngIf="af.imageurl.errors.required">Image is required</div>
+                          </div> -->
+                      </div>
+                  </div>
+                  <br>
+                  <button class="btn btn-primary" type="submit" [disabled]="authorform.invalid">Submit</button>
+                  <br>
+            </form>
+          </div>
+      </div>
+    </div><!--/col-6-->
+    <div class="col-md-4"></div>
+  </div>
+</div>

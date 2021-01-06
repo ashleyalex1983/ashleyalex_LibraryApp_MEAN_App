@@ -1,0 +1,56 @@
+<div class="container" >
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="form-panel" style="width: fit-content;">
+        <!-- login form -->
+        <div class="box">
+          <h2>User Login </h2>
+          <hr>
+          <!-- Success msg -->
+          <div *ngIf="successMsg" class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{successMsg}}</strong>
+          </div>
+          <!-- Error msg -->
+          <div *ngIf="errorMsg" class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{errorMsg}}</strong>
+          </div>
+          <form  id="loginform" [formGroup]="loginform" (ngSubmit)="loginUser()">
+            <br>
+            <div class="form_control">
+              <input type="text" name="username" id="username" [(ngModel)]="user.user_email"
+                     placeholder="Enter Email" formControlName="email">
+              <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Enter a valid email</div>
+              </div>
+                      <!-- #email="ngModel"
+                     [class.is-invalid]="email.invalid && email.touched" required
+                     pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}"> -->
+              <!-- <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter valid email</small> -->
+
+            </div>
+            <!-- <hr> -->
+            <div class="form_control">
+              <input type="password" name="password" id="password" [(ngModel)]="user.user_password"
+                      placeholder="Enter Password" formControlName="password">
+              <!-- <p>Error message</p> -->
+              <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Must be of 8 characters</div>
+              </div>
+            </div>
+            <!-- <br> -->
+            <button id="submit-button" type="submit">Login</button>
+            <br>
+            <label><a class="signup-link" href="/signup" > Click here</a>  to create an account.</label>
+          </form>
+        </div>
+        <!-- login form -->
+      </div>
+    </div><!--/col-12-->
+    <div class="col-md-4"></div>
+  </div>
+</div>

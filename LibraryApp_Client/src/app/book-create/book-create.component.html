@@ -1,0 +1,63 @@
+<div class="container" >
+  <div class="row g-3" style="align-content: center;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="form-panel" style="width: fit-content;max-width: 520px;">
+        <div class="box form-container">
+          <h2 class="form-heading">{{title}}</h2>
+          <hr>
+          <form class="form" id="form" [formGroup]="bookform" (ngSubmit)="addBook()">
+                <div class="form_control">
+                    <label for="">Book Title</label><sup>*</sup>
+                    <input type="text" placeholder="Enter Book Title" id="book-title" name="book_title"
+                    [(ngModel)]="book_Item.book_title" formControlName="title" required>
+                    <!-- <p>Error message</p> -->
+                    <div *ngIf="bf.title.touched && bf.title.invalid" class="alert alert-danger">
+                      <div *ngIf="bf.title.errors.required">Book Title is required</div>
+                    </div>
+                </div>
+                <div class="form_control">
+                    <label for="">Author Name</label><sup>*</sup>
+                    <input type="text" placeholder="Enter Author Name" id="author-name" name="book_author"
+                    [(ngModel)]="book_Item.book_author" formControlName="name" required>
+                    <!-- <p>Error message</p> -->
+                    <div *ngIf="bf.name.touched && bf.name.invalid" class="alert alert-danger">
+                      <div *ngIf="bf.name.errors.required">Author Name is required</div>
+                    </div>
+                </div>
+                <div class="form_control">
+                    <label for="">Book Genre</label><sup>*</sup>
+                    <input type="text" placeholder="Enter Book Genre" id="book-genre" name="book_genre"
+                    [(ngModel)]="book_Item.book_genre" formControlName="genre" required>
+                    <!-- <p>Error message</p> -->
+                    <div *ngIf="bf.genre.touched && bf.genre.invalid" class="alert alert-danger">
+                      <div *ngIf="bf.genre.errors.required">Book Genre is required</div>
+                    </div>
+                </div>
+                <br>
+                <div >
+                    <label for="">Book Cover Image</label><sup>*</sup>
+                    <hr>
+                    <div class="mb-3">
+                      <img  *ngIf="selectedImage"
+                            [src]="selectedImage"
+                            [style.width.px] = 'imageWidth'
+                            [style.margin.px] = 'imageMargin'>
+                      <br>
+                      <input class="form-control" type="file" accept="image/*"
+                            (change)="onSelectImage($event)" name="book_image"
+                            [(ngModel)]="book_Item.book_imageUrl" formControlName="imageurl" required>
+                            <div   *ngIf="bf.imageurl.touched && bf.imageurl.invalid" class="alert alert-danger">
+                              <div *ngIf="bf.imageurl.errors.required">Image is required</div>
+                            </div>
+                    </div>
+                </div><br>
+                <button class="btn btn-primary" type="submit" [disabled]="bookform.invalid" >Submit</button>
+                <br>
+          </form>
+        </div>
+      </div>
+    </div><!--/col-6-->
+    <div class="col-md-4"></div>
+  </div>
+</div>
